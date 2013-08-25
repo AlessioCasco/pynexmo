@@ -62,11 +62,13 @@ def __url_fetch(url):
 def __select_from(numbers):
     for num in numbers:
         print("[%s] %s") % (num, numbers[num])
-    try:
-        fromnum = raw_input("From: ")
-        return numbers[fromnum]
-    except KeyError:
-        sys.exit("No such number. You suuuck! ktnxbye")
+    
+    inputnum = raw_input("From (Also a custom value): ")
+
+    if inputnum in numbers:
+        return numbers[inputnum]
+    else:
+        return inputnum
 
 
 def __select_to():
